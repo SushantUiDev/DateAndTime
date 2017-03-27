@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Clock Demo</title>
+<style>
+#clock
+{
+	background-color:#000;
+	font-size:150px;
+	margin:0px;
+	width:800px;
+	color:#F00;
+	border:2px solid black;
+	padding:20px;
+	border-radius:40%;
+	position:relative;
+	left:200px;
+	top:150px;
+	height:200px;
+	box-shadow:2px 2px 50px 2px black;
+}
+body
+{
+	background-color:#00F;
+}
+</style>
+
+</head>
+
+<body>
+<div id="clock"></div>
+<script>
+setInterval(bodyload , 500);
+var em="";
+function bodyload()
+{
+	var time=new Date();
+	var hrs=time.getHours();
+	var minu=time.getMinutes();
+	var sec=time.getSeconds();
+	
+	if(hrs>12)
+	{
+		hrs=hrs-12;
+		em="PM";
+	}
+	if(hrs < 12)
+	{
+		em ="AM";
+	}
+	if(hrs == 0)
+	{
+		hrs=12;  
+	}
+	if(minu < 10)
+	{
+		minu ="0" + minu;
+	}
+	if(sec < 10)
+	{
+		sec = "0" + sec;
+	}
+	document.getElementById("clock").innerHTML= hrs + ":" + minu + ":" + sec +em;
+}
+</script>
+</body>
+</html>
